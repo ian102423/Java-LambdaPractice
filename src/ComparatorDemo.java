@@ -24,21 +24,31 @@ public class ComparatorDemo {
         print(addresses);
 
         // !! - Write an anonymous class to sort by state (alphabetically)
-        Collections.sort((e1, e2) -> e1.getStreet().compareTo(e2.getStreet)
+        Collections.sort(addresses, new Comparator<Address>() {
+                    @Override
+                    public int compare(Address o1, Address o2) {
+                        return o1.getStreet().compareTo(o2.getStreet());
+                    }
+                }
         );
 
         System.out.println("\nAfter sorting by state");
         print(addresses);
 
         // !! - Write a lambda to sort by city alphabetically
-        Collections.sort(addresses, /* lambda here */);
+        Collections.sort(addresses, new Comparator<Address>() {
+            @Override
+            public int compare(Address o1, Address o2) {
+                return o1.getCity().compareTo(o2.getCity());
+            }
+        });
 
         System.out.println("\nAfter sorting by city");
         print(addresses);
     }
 
     private static void print(List<Address> addresses) {
-        for(Address address : addresses) {
+        for (Address address : addresses) {
             System.out.println(address);
         }
     }
