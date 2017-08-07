@@ -27,7 +27,7 @@ public class ComparatorDemo {
         Collections.sort(addresses, new Comparator<Address>() {
                     @Override
                     public int compare(Address o1, Address o2) {
-                        return o1.getStreet().compareTo(o2.getStreet());
+                        return o1.getState().compareTo(o2.getState());
                     }
                 }
         );
@@ -36,12 +36,9 @@ public class ComparatorDemo {
         print(addresses);
 
         // !! - Write a lambda to sort by city alphabetically
-        Collections.sort(addresses, new Comparator<Address>() {
-            @Override
-            public int compare(Address o1, Address o2) {
-                return o1.getCity().compareTo(o2.getCity());
-            }
-        });
+        Collections.sort(addresses, (o1, o2) ->
+                o1.getCity().compareTo(o2.getCity()))
+        ;
 
         System.out.println("\nAfter sorting by city");
         print(addresses);

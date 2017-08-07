@@ -15,11 +15,8 @@ public class RunnableDemo {
 
         // !! - Write a lambda function here
         //It can also print out something like "Lambda run"
-        Runnable lambdaRun = new Runnable() {
-            @Override
-            public void run() {
+        Runnable lambdaRun = () -> {
                 System.out.println("Lambda run");
-            }
         };
 
         lambdaRun.run();
